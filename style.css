@@ -26,7 +26,7 @@ nav ul li{
     height: auto;
 }
 main{
-    width:100%;
+    width: 100%;
 }
 main h1{
     font-size:20px;
@@ -64,14 +64,15 @@ main #main-container table tr td p {
 }
 
 main aside{
-    width:30%;
+    //float: right;
+    width: 30%;
 }
 main aside h2{
     font-size: 20px;
     border-bottom: 2px dotted #000;
     margin:0;
     
-}
+
 main aside ul{
     list-style: none;
     list-style-position: inside;
@@ -84,9 +85,26 @@ main aside ul li{
     
 }
 
-aside{
-    float: right;
-   
+h2{
+    margin: 30px auto 20px;
+    border-left: 4px solid red;
+    background: #f1f1f1;
+    padding: 5px 0 5px 15px;
+    width: 500px;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+form{
+    margin: 0 auto;
+    background #fbfbfb;
+    border: 3px solid #ebebeb;
+    border-radius; 10px;
+    width: 500px;
+    box-sizing: border-box;
+}
+form div {
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 /*　フッター

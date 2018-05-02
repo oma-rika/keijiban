@@ -1,14 +1,12 @@
 <!doctype html>
 <html lang="ja">
-
 <head>
-    <meta charset="utf-8">
-    <title>4each　blog掲示板</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <title>4eachblog 掲示板</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<body>
-  <head>
+  <header>
     <div class="logo"><img src="4eachblog_logo.jpg" alt="4eachblog" /></div>
     <nav>
       <ul>
@@ -19,60 +17,32 @@
         <li>その他</li>
       </ul>
     </nav>
-  </head>
+  </header>
   <main>
-    <h1>プログラミングに役立つ書籍</h1>
-    <div id="main-container">
-    <!-- 掲示板ここから -->
-    <div class="keijiban">
-      <form method="post" action="insert.php">
-        <input type="text" name="handlename" />
-        <input type="text" name="title" />
-        <textarea name="comments"></textarea>
-      </form>
-    </div>   
-    <!-- 掲示板ここまで -->  
-    <p>4eachはインターノウスが提供するオンラインでプログラミングが勉強できるイーランニングシステムです。</p>
-    <p>記事中身</p>
-    <table border="0" cellspadding="5" bgcolor="gray">
-      <tr>
-        <td>
-           <img src="./pic1.jpg" alt="画像1" />
-            <p>ドメイン取得方法</p>
-        </td>
-        <td>
-            <img src="./pic2.jpg" alt="画像2" />
-            <p>快適な職場環境</p>
-        </td>
-        <td>
-            <img src="./pic3.jpg" alt="画像3" />
-            <p>Linuxの基礎</p>
-        </td>
-        <td>
-            <img src="./pic4.jpg" alt="画像4" />
-            <p>マーケティング入門</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-           <img src="./pic5.jpg" alt="画像5" />
-            <p>アクティブラーニング</p>
-        </td>
-        <td>
-            <img src="./pic6.jpg" alt="画像6" />
-            <p>cssの効果的な勉強方法</p>
-        </td>
-        <td>
-            <img src="./pic7.jpg" alt="画像7" />
-            <p>リーダブルコードとは</p>
-        </td>
-        <td>
-            <img src="./pic8.jpg" alt="画像8" />
-            <p>HTML5の可能性</p>
-        </td>
-      </tr>
-    </table>
-    </div>
+  <div id="main-container">
+  <h1>入力フォーム</h1>
+  <form method="post" action="insert.php">
+    <div>ハンドルネーム<br><input type="text" name="handlename" /></div>
+    <div>タイトル<br><input type="text" name="title" /></div>
+    <div>コメント<br><textarea name="comments"></textarea></div>
+    <div><input type="submit" value="投稿する"></div>
+  </form>
+  <?php
+      mb_internal_encoding("utf8");
+      $pdo = new PDO("mysql:dbname=lesson02;host=localhost;","root", "mysql");
+      $stmt = $pdo->query("select * from 4each_keijiban");
+      
+      while($row = $stmt->fetch()){
+        echo "<div class='kiji'>";
+        echo "<h2>".$row['title']."</h2>";
+        echo "<div class='contents'>";
+        echo $row['comments'];
+        echo "</div>";
+        echo "<div class='handlename'>posted by ".$row['handlename']."</div>";
+        echo "</div>";
+      }
+  ?>
+  </div>
   <aside>
     <h2>人気の記事</h2>
     <ul>
@@ -101,4 +71,3 @@
     copy&copy;internous | 4each blog is the one which provides A to Z about programing.    
   </footer>
 </body>
-</html>
