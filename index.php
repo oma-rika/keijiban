@@ -21,11 +21,11 @@
   <main>
   <div id="main-container">
   <h1>入力フォーム</h1>
-  <form method="post" action="insert.php">
-    <div>ハンドルネーム<br><input type="text" name="handlename" /></div>
-    <div>タイトル<br><input type="text" name="title" /></div>
+  <form method="post" action="./insert.php">
+    <div>ハンドルネーム<br><input type="text" class="text" name="handlename" /></div>
+    <div>タイトル<br><input type="text" class="text" name="title" /></div>
     <div>コメント<br><textarea name="comments"></textarea></div>
-    <div><input type="submit" value="投稿する"></div>
+    <div><input type="submit" class="submit" value="投稿する"></div>
   </form>
   <?php
       mb_internal_encoding("utf8");
